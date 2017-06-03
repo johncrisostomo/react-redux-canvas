@@ -1,6 +1,8 @@
+import uuid from 'uuid';
 import {
   CANVAS_ADD_IMAGE,
   CANVAS_ADD_TEXT,
+  CANVAS_TEXT_UPDATE_COORDS,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -8,17 +10,46 @@ const INITIAL_STATE = {
   images: [],
 };
 
+const updateCoords = (oldArray, updatedObject) => {
+  return oldArray.map((obj) => {
+      if (updatedObject.id === obj.id) {
+        obj.x = updatedObject.x;
+        obj.y = updatedObject.y;
+
+        return obj;
+      }
+
+      return obj;
+    });
+};
+
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case CANVAS_ADD_IMAGE:
       return {
         ...state,
-        images: [...state.images, { url: action.payload }],
+        images: [...state.images, {
+          id: uuid.v4(),
+          url: action.payload,
+          x: 0,
+          y: 0,
+        }],
       };
     case CANVAS_ADD_TEXT:
       return {
         ...state,
-        texts: [...state.texts, { text: action.payload }],
+        texts: [...state.texts, {
+          id: uuid.v4(),
+          text: action.payload,
+          x: 0,
+          y: 0,
+         }],
+      };
+    case CANVAS_TEXT_UPDATE_COORDS:
+      const updatedTexts = updateCoords(state.texts, action.payload);
+      return {
+        ...state,
+        texts: updatedTexts,
       };
     default:
       return state;
