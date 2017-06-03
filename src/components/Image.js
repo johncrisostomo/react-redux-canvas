@@ -1,9 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addImage } from '../actions/CanvasActions';
 
-const Image = ({ source }) => {
+const Image = ({ source, dispatchAddImage}) => {
   return (
-    <img src={source} className="img-rounded" alt="images from server" />
+    <img src={source}
+      onClick={() => dispatchAddImage(source)}
+      className="img-rounded"
+      alt="images from server" />
   );
 };
 
-export default Image;
+export default connect(null, { dispatchAddImage: addImage })(Image);

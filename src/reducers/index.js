@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import ImagesReducers from './ImagesReducer';
+import ImagesReducer from './ImagesReducer';
+import canvasReducer from './CanvasReducer';
 
 export default combineReducers({
-  imagesState: ImagesReducers,
+  imagesState: ImagesReducer,
+  canvasState: canvasReducer,
 });
