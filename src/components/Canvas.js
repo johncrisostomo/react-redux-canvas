@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
 import CanvasImage from './CanvasImage';
-
+import CanvasText from './CanvasText';
 
 class Canvas extends Component {
   renderImages() {
@@ -11,11 +11,18 @@ class Canvas extends Component {
     });
   }
 
+  renderTexts() {
+    return this.props.texts.map((textObject) => {
+      return <CanvasText key={uuid.v4()} textObject={textObject} />;
+    });
+  }
+
   render() {
     return (
       <div className="canvas col-sm-8 col-md-8 col-lg-8">
         <div className="block">
           {this.renderImages()}
+          {this.renderTexts()}
         </div>
       </div>
     )
@@ -25,6 +32,7 @@ class Canvas extends Component {
 const mapStateToProps = ({ canvasState }) => {
   return {
     images: canvasState.images,
+    texts: canvasState.texts,
   };
 }
 
