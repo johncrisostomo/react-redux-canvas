@@ -2,7 +2,7 @@ import React from 'react';
 
 const Image = ({ source }) => {
   return (
-    <img src={source} className="img-rounded" />
+    <img src={source} className="img-rounded" alt="images from server" />
   );
 };
 
