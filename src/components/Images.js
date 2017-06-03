@@ -5,28 +5,12 @@ import axios from 'axios';
 import Image from './Image';
 
 class Images extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      images: [],
-    };
-  }
-
   componentWillMount() {
     this.props.fetchImages();
-    this.fetchImages();
-  }
-
-  fetchImages() {
-    axios.get('http://localhost:8000/images')
-      .then(({ data }) => {
-        this.setState({ images: data });
-      });
   }
 
   renderImages() {
-    return this.state.images.map((src) => {
+    return this.props.images.map((src) => {
       return (
         <li><Image source={src} /></li>
       );

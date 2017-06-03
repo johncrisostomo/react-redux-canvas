@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchImages } from '../actions/ImagesActions';
 
 class ImageUpload extends Component {
   constructor(props) {
@@ -32,8 +34,9 @@ class ImageUpload extends Component {
         'Content-Type': 'multipart/form-data',
       },
     });
-    
-    server.post('/uploads', this.state.imageFile);
+
+    server.post('/uploads', this.state.imageFile)
+      .then(() => this.props.fetchImages());
   }
 
   render() {
@@ -51,4 +54,4 @@ class ImageUpload extends Component {
   }
 }
 
-export default ImageUpload;
+export default connect(null, { fetchImages })(ImageUpload);
