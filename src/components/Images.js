@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchImages } from '../actions/ImagesActions';
 import axios from 'axios';
 import Image from './Image';
 
@@ -12,6 +14,7 @@ class Images extends Component {
   }
 
   componentWillMount() {
+    this.props.fetchImages();
     this.fetchImages();
   }
 
@@ -31,6 +34,7 @@ class Images extends Component {
   }
 
   render() {
+    console.log(this.props.images);
     return (
       <div className="image">
         <h4>Images</h4>
@@ -44,4 +48,8 @@ class Images extends Component {
   }
 }
 
-export default Images;
+const mapStateToProps = ({ images }) => {
+  return { images };
+};
+
+export default connect(mapStateToProps, { fetchImages })(Images);
