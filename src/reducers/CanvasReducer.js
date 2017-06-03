@@ -3,6 +3,7 @@ import {
   CANVAS_ADD_IMAGE,
   CANVAS_ADD_TEXT,
   CANVAS_TEXT_UPDATE_COORDS,
+  CANVAS_IMAGE_UPDATE_COORDS,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -50,6 +51,12 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         texts: updatedTexts,
+      };
+    case CANVAS_IMAGE_UPDATE_COORDS:
+      const updatedImages = updateCoords(state.images, action.payload);
+      return {
+        ...state,
+        images: updatedImages,
       };
     default:
       return state;

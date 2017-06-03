@@ -7,15 +7,14 @@ class CanvasText extends Component {
     const payload = { ...this.props.textObject };
     payload.x = x;
     payload.y = y;
-    this.props.updateObjectCoords(payload);
+    this.props.updateObjectCoords('text', payload);
   }
 
   render() {
-    const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
+    const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
 
     const { textObject } = this.props;
 
-    console.log(textObject)
     return (
       <Draggable
         position={{ x: textObject.x, y: textObject.y }}

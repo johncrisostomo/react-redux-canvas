@@ -2,16 +2,25 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CanvasImage from './CanvasImage';
 import CanvasText from './CanvasText';
-import { updateTextCoords } from '../actions/CanvasActions';
+import { updateTextCoords, updateImageCoords } from '../actions/CanvasActions';
 
 class Canvas extends Component {
-  updateObjectCoords(payload) {
-    this.props.dispatchUpdateCoords(payload);
+  updateObjectCoords(type, payload) {
+    if (type === 'text') {
+      this.props.dispatchUpdateTextCoords(payload);
+    }
+
+    if (type === 'image') {
+      this.props.dispatchUpdateImageCoords(payload);
+    }
   }
 
   renderImages() {
     return this.props.images.map((imageObject) => {
-      return <CanvasImage key={imageObject.id} imageObject={imageObject} />;
+      return <CanvasImage
+        updateObjectCoords={this.updateObjectCoords.bind(this)}
+        key={imageObject.id}
+        imageObject={imageObject} />;
     });
   }
 
@@ -44,5 +53,6 @@ const mapStateToProps = ({ canvasState }) => {
 }
 
 export default connect(mapStateToProps, {
-  dispatchUpdateCoords: updateTextCoords,
+  dispatchUpdateTextCoords: updateTextCoords,
+  dispatchUpdateImageCoords: updateImageCoords,
 })(Canvas);
