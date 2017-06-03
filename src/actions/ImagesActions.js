@@ -19,7 +19,6 @@ export const clearTextInput = () => {
   };
 };
 
-
 export const selectImage = (img) => {
   const data = new FormData();
   data.append('upload', img);

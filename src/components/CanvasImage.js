@@ -6,7 +6,7 @@ const CanvasImage = ({ imageObject }) => {
 
   return (
     <Draggable
-      bounds=".canvas"
+      bounds=".block"
       axis="both"
       {...dragHandlers}
       >

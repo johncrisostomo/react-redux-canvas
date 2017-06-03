@@ -10,9 +10,7 @@ const CanvasText = ({ textObject }) => {
       axis="both"
       {...dragHandlers}
       >
-        <div className="handle">
-          <span>{textObject.text}</span>
-        </div>
+        <h1 className="canvasText">{textObject.text}</h1>
     </Draggable>
   );
 };
