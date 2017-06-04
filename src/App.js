@@ -9,6 +9,7 @@ import ImageUpload from './components/ImageUpload';
 import Texts from './components/Texts';
 import Images from './components/Images';
 import Canvas from './components/Canvas';
+import ItemsList from './components/ItemsList';
 
 import reducers from './reducers';
 
@@ -24,6 +25,7 @@ class App extends Component {
             <ImageUpload />
             <hr />
             <Assets>
+              <ItemsList />
               <Texts />
               <Images />
             </Assets>

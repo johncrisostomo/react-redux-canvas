@@ -10,10 +10,6 @@ class CanvasImage extends Component {
     this.props.updateObjectCoords('image', payload);
   }
 
-  componentWillUnmount() {
-    console.log('unmounting');
-  }
-
   render() {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
     const { imageObject } = this.props;

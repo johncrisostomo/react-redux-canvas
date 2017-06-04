@@ -3,6 +3,7 @@ import {
   CANVAS_ADD_TEXT,
   CANVAS_TEXT_UPDATE_COORDS,
   CANVAS_IMAGE_UPDATE_COORDS,
+  CANVAS_ITEM_REMOVE,
 } from './types';
 
 export const addImage = (imageUrl) => {
@@ -31,4 +32,14 @@ export const updateImageCoords = (obj) => {
     type: CANVAS_IMAGE_UPDATE_COORDS,
     payload: obj,
   };
+};
+
+export const removeItem = (type, id) => {
+  return {
+    type: CANVAS_ITEM_REMOVE,
+    payload: {
+      type,
+      id,
+    },
+  }
 };
