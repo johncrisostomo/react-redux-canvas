@@ -1,7 +1,9 @@
 # React Redux Canvas
 
 A simple canvas-like web app made with React and Redux.
-This needs an express backend running at `:8000` and implements `/uploads` & `/images` to work properly.
+~~This needs an express backend running at `:8000` and implements `/uploads` & `/images` to work properly.~~
+
+**UPDATE**: I have decided to Dockerize this app so that it can be easily tested and seen. Just do `docker-compose up` :).
 
 This web app allows you to upload images and add them on a `div` canvas. You can also add texts and drag and drop them around the canvas. States are stored in Redux and the whole store is saved in local storage, which makes it persistent even if you refresh the page or close the tab.
 
