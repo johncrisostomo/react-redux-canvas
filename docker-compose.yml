@@ -1,0 +1,10 @@
+version: "3"
+services:
+  canvas:
+    build: ./canvas
+    ports:
+      - "3000:3000"
+  server:
+    build: ./server
+    ports:
+      - "8000:8000"
