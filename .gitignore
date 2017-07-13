@@ -2,6 +2,7 @@
 
 # dependencies
 canvas/node_modules
+server/node_modules
 /node_modules
 
 # testing
