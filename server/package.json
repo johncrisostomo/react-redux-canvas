@@ -11,7 +11,7 @@
   "dependencies": {
     "cors": "^2.8.3",
     "express": "^4.13.4",
-    "jquery": "^2.2.3",
+    "jquery": "^3.0.0",
     "junk": "^1.0.2",
     "multer": "^1.1.0",
     "nodemon": "^1.9.1"
